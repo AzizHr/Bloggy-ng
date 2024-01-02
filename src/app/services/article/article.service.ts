@@ -7,6 +7,7 @@ import { ArticleResponse } from "../../models/article/article-response.model";
 @Injectable({
   providedIn: 'root'
 })
+
 export class ArticleService {
 
   constructor(private http: HttpClient) {}
@@ -43,7 +44,7 @@ export class ArticleService {
         );
   }
 
-  public findById(id: string): Observable<ArticleResponse> {
+  public getOne(id: string): Observable<ArticleResponse> {
     return this.http.get<ArticleResponse>(`${this.api}/${id}`)
         .pipe(
             catchError((error: any) => {
@@ -53,7 +54,18 @@ export class ArticleService {
         );
   }
 
-  public findAll(page: number, size: number): Observable<ArticleResponse[]> {
+
+    public _getAll(): Observable<ArticleResponse[]> {
+        return this.http.get<ArticleResponse[]>(this.api)
+            .pipe(
+                catchError((error: any) => {
+                    console.log(error.error.message);
+                    throw error;
+                })
+            );
+    }
+
+  public getAll(page: number, size: number): Observable<ArticleResponse[]> {
     const params: HttpParams = new HttpParams().set('page', page.toString()).set('size', size.toString());
     return this.http.get<ArticleResponse[]>(this.api, { params })
         .pipe(
@@ -97,8 +109,15 @@ export class ArticleService {
         );
   }
 
-  public findAllByAuthor(page: number, size: number, author: string): string {
-    return "find all articles by their author";
+  public getByAuthor(page: number, size: number, author: string): Observable<ArticleResponse[]> {
+    const params: HttpParams = new HttpParams().set('page', page.toString()).set('size', size.toString());
+    return this.http.get<ArticleResponse[]>(`${this.api}/g?author=${author}`, { params })
+        .pipe(
+            catchError((error: any) => {
+              console.log(error.error.message);
+              throw error;
+            })
+        );
   }
 
 }
