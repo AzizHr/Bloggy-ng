@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
-import * as CommentActions from '../../actions/comment/comment.actions';
-import { CommentState, initialState } from "../../../state/comment.state";
-import * as ArticleActions from "../../actions/article/article.actions";
+import * as CommentActions from '../actions/comment.actions';
+import { CommentState, initialState } from "../../state/comment.state";
+import * as ArticleActions from "../actions/article.actions";
 
 export const commentReducer = createReducer(
   initialState,
@@ -11,4 +11,4 @@ export const commentReducer = createReducer(
   on(ArticleActions.deleteArticleSuccess, (state, { id }) => ({ ...state, id }))
 );
 
-export { CommentState } from '../../../state/comment.state';
+export { CommentState } from '../../state/comment.state';

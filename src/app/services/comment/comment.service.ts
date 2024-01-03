@@ -15,8 +15,8 @@ export class CommentService {
 
   constructor(private http: HttpClient) { }
 
-  public create(comment: Comment): Observable<ArticleResponse> {
-    return this.http.post<ArticleResponse>(this.api, comment)
+  public create(comment: Comment): Observable<CommentResponse> {
+    return this.http.post<CommentResponse>(this.api, comment)
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);
@@ -25,8 +25,8 @@ export class CommentService {
         );
   }
 
-  public update(comment: Comment): Observable<ArticleResponse> {
-    return this.http.post<ArticleResponse>(this.api, comment)
+  public update(comment: Comment): Observable<CommentResponse> {
+    return this.http.post<CommentResponse>(this.api, comment)
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);

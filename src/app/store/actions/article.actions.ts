@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import {ArticleResponse} from "../../../models/article/article-response.model";
-import { Article } from "../../../models/article/article.model";
+import {ArticleResponse} from "../../models/article/article-response.model";
+import { Article } from "../../models/article/article.model";
 
 export const loadArticles = createAction('[Article] Load Articles');
 export const loadBArticlesSuccess = createAction('[Article] Load Articles Success', props<{ articles: ArticleResponse[] }>());

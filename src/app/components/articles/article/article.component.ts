@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {ArticleResponse} from "../../../models/article/article-response.model";
 
 @Component({
   selector: 'app-article',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent {
+ @Input() article!: ArticleResponse;
 
 }

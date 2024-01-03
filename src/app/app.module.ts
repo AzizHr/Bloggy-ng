@@ -9,11 +9,15 @@ import { NewArticleComponent } from './components/articles/new-article/new-artic
 import { ArticleComponent } from './components/articles/article/article.component';
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
-import { articleReducer } from "./store/reducers/article/article.reducers";
-import { ArticleEffects } from "./store/effects/article/article.effects";
+import { articleReducer } from "./store/reducers/article.reducers";
+import { ArticleEffects } from "./store/effects/article.effects";
 import { HttpClientModule } from "@angular/common/http";
-import { CommentsComponent } from './components/articles/comments/comments.component';
-import { CommentComponent } from './components/articles/comments/comment/comment.component';
+import { commentReducer } from "./store/reducers/comment.reducers";
+import { CommentEffects } from "./store/effects/comment.effects";
+import { TagsComponent } from './components/articles/article/tags/tags.component';
+import { TagComponent } from './components/articles/article/tags/tag/tag.component';
+import { CommentsComponent } from "./components/articles/article/comments/comments.component";
+import { CommentComponent } from "./components/articles/article/comments/comment/comment.component";
 
 @NgModule({
   declarations: [
@@ -24,6 +28,8 @@ import { CommentComponent } from './components/articles/comments/comment/comment
     ArticleComponent,
     CommentsComponent,
     CommentComponent,
+    TagsComponent,
+    TagComponent,
 
   ],
   imports: [
@@ -32,10 +38,10 @@ import { CommentComponent } from './components/articles/comments/comment/comment
     HttpClientModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature('articles', articleReducer),
-    EffectsModule.forRoot([ArticleEffects]),
-
+    StoreModule.forFeature('comments', commentReducer),
+    EffectsModule.forRoot([ArticleEffects, CommentEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,6 +1,6 @@
 import {Author} from "../user/author.model";
 import {CommentResponse} from "../comment/comment-response.model";
-import {Media} from "../media/media.model";
+import {Media} from "../media.model";
 
 export interface ArticleResponse {
 

@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ArticleResponse} from "../../models/article/article-response.model";
 import {select, Store} from "@ngrx/store";
-import {selectArticles} from "../../store/selectors/article/article.selectors";
+import {selectArticles} from "../../store/selectors/article.selectors";
 import {AppStore} from "../../store/reducers";
 import {Observable} from "rxjs";
-import * as ArticleActions from '../../store/actions/article/article.actions';
+import * as ArticleActions from '../../store/actions/article.actions';
 
 @Component({
   selector: 'app-articles',

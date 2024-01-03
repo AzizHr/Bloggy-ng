@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import { CommentResponse } from "../../../models/comment/comment-response.model";
-import { Comment } from "../../../models/comment/comment.model";
+import { CommentResponse } from "../../models/comment/comment-response.model";
+import { Comment } from "../../models/comment/comment.model";
 
 export const loadArticleComments = createAction('[Comment] Load Article Comments', props<{ articleId: string }>());
 export const loadArticleCommentsSuccess = createAction('[Comment] Load Article Comments Success', props<{ comments: CommentResponse[] }>());

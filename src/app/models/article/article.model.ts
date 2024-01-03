@@ -1,4 +1,4 @@
-import { Media } from "../media/media.model";
+import { Media } from "../media.model";
 
 export interface Article {
 

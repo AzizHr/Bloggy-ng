@@ -1,4 +1,4 @@
-import * as fromArticle from './article/article.reducers';
+import * as fromArticle from './article.reducers';
 import {ActionReducerMap} from "@ngrx/store";
 
 export { fromArticle };
