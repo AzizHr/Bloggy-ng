@@ -6,7 +6,7 @@ import * as ArticleActions from '../../actions/article/article.actions';
 import {ArticleService} from "../../../services/article/article.service";
 
 @Injectable()
-export class BlogEffects {
+export class ArticleEffects {
     loadBlogs$ = createEffect(() => this.actions$.pipe(
         ofType(ArticleActions.loadArticles),
         mergeMap(() => this.articleService._getAll().pipe(

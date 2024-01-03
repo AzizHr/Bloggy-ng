@@ -7,6 +7,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { NewArticleComponent } from './components/articles/new-article/new-article.component';
 import { ArticleComponent } from './components/articles/article/article.component';
+import {EffectsModule} from "@ngrx/effects";
+import {StoreModule} from "@ngrx/store";
+import {articleReducer} from "./store/reducers/article/article.reducers";
+import {ArticleEffects} from "./store/effects/article/article.effects";
+import {reducers} from "./store/reducers";
 
 @NgModule({
   declarations: [
@@ -14,11 +19,16 @@ import { ArticleComponent } from './components/articles/article/article.componen
     NavbarComponent,
     ArticlesComponent,
     NewArticleComponent,
-    ArticleComponent
+    ArticleComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('articles', articleReducer),
+    EffectsModule.forRoot([ArticleEffects]),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
