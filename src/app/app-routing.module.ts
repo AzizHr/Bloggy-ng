@@ -5,10 +5,10 @@ import {NewArticleComponent} from "./components/articles/new-article/new-article
 import {ArticleComponent} from "./components/articles/article/article.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/articles", pathMatch: "full" },
-  { path: "articles", component: ArticlesComponent },
-  { path: "articles/new", component: NewArticleComponent },
-  { path: "articles/:id", component: ArticleComponent }
+  // { path: "", redirectTo: "/articles", pathMatch: "full" },
+  // { path: "articles", component: ArticlesComponent },
+  // { path: "articles/new", component: NewArticleComponent },
+  // { path: "articles/:id", component: ArticleComponent }
 ];
 
 

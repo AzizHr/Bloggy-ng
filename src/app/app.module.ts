@@ -11,7 +11,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {StoreModule} from "@ngrx/store";
 import {articleReducer} from "./store/reducers/article/article.reducers";
 import {ArticleEffects} from "./store/effects/article/article.effects";
-import {reducers} from "./store/reducers";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import {reducers} from "./store/reducers";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature('articles', articleReducer),
     EffectsModule.forRoot([ArticleEffects]),
