@@ -65,4 +65,14 @@ export class CommentService {
         );
   }
 
+  public findByArticle(article: string): Observable<CommentResponse[]> {
+    return this.http.get<CommentResponse[]>(`${this.api}/f?article=${article}`)
+      .pipe(
+        catchError((error: any) => {
+          console.log(error.error.message);
+          throw error;
+        })
+      );
+  }
+
 }

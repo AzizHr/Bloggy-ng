@@ -13,7 +13,7 @@ import * as ArticleActions from '../../store/actions/article/article.actions';
 })
 export class ArticlesComponent implements OnInit {
 
-  articles$: Observable<ArticleResponse[]>;
+  articles$: Observable<any>;
   articles: ArticleResponse[] = [];
 
   constructor(private store: Store<AppStore>) {
@@ -23,7 +23,7 @@ export class ArticlesComponent implements OnInit {
 
     this.store.dispatch(ArticleActions.loadArticles());
     this.articles$.subscribe(articles => {
-      this.articles = articles;
+      this.articles = articles.content;
       console.log(this.articles);
     })
 

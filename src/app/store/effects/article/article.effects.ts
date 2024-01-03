@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
-import { EMPTY } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import * as ArticleActions from '../../actions/article/article.actions';
 import {ArticleService} from "../../../services/article/article.service";
@@ -9,7 +8,7 @@ import {ArticleService} from "../../../services/article/article.service";
 export class ArticleEffects {
     loadBlogs$ = createEffect(() => this.actions$.pipe(
         ofType(ArticleActions.loadArticles),
-        mergeMap(() => this.articleService._getAll().pipe(
+        mergeMap(() => this.articleService.getAll(0, 3).pipe(
             map(articles => ArticleActions.loadBArticlesSuccess({ articles })),
             catchError(async () => ArticleActions.loadArticlesFailure())
         ))

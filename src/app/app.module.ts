@@ -7,11 +7,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { NewArticleComponent } from './components/articles/new-article/new-article.component';
 import { ArticleComponent } from './components/articles/article/article.component';
-import {EffectsModule} from "@ngrx/effects";
-import {StoreModule} from "@ngrx/store";
-import {articleReducer} from "./store/reducers/article/article.reducers";
-import {ArticleEffects} from "./store/effects/article/article.effects";
-import {HttpClientModule} from "@angular/common/http";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreModule } from "@ngrx/store";
+import { articleReducer } from "./store/reducers/article/article.reducers";
+import { ArticleEffects } from "./store/effects/article/article.effects";
+import { HttpClientModule } from "@angular/common/http";
+import { CommentsComponent } from './components/articles/comments/comments.component';
+import { CommentComponent } from './components/articles/comments/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import {HttpClientModule} from "@angular/common/http";
     ArticlesComponent,
     NewArticleComponent,
     ArticleComponent,
+    CommentsComponent,
+    CommentComponent,
 
   ],
   imports: [

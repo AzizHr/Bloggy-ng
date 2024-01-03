@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
 import { Article } from "../../models/article/article.model";
 import { ArticleResponse } from "../../models/article/article-response.model";
+import {Page} from "../../models/pageable/page.model";
 
 @Injectable({
   providedIn: 'root'
@@ -55,19 +56,9 @@ export class ArticleService {
   }
 
 
-    public _getAll(): Observable<ArticleResponse[]> {
-        return this.http.get<ArticleResponse[]>(this.api)
-            .pipe(
-                catchError((error: any) => {
-                    console.log(error.error.message);
-                    throw error;
-                })
-            );
-    }
-
-  public getAll(page: number, size: number): Observable<ArticleResponse[]> {
+  public getAll(page: number, size: number): Observable<any> {
     const params: HttpParams = new HttpParams().set('page', page.toString()).set('size', size.toString());
-    return this.http.get<ArticleResponse[]>(this.api, { params })
+    return this.http.get<any>(this.api, { params })
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);
@@ -76,9 +67,9 @@ export class ArticleService {
         );
   }
 
-  public searchByTitle(page: number, size: number, title: string): Observable<ArticleResponse[]> {
+  public searchByTitle(page: number, size: number, title: string): Observable<Page> {
     const params: HttpParams = new HttpParams().set('page', page.toString()).set('size', size.toString());
-    return this.http.get<ArticleResponse[]>(`${this.api}/search?title=${title}`, { params })
+    return this.http.get<Page>(`${this.api}/search?title=${title}`, { params })
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);
@@ -87,9 +78,9 @@ export class ArticleService {
         );
   }
 
-  public searchByContent(page: number, size: number, content: string): Observable<ArticleResponse[]> {
+  public searchByContent(page: number, size: number, content: string): Observable<Page> {
     const params: HttpParams = new HttpParams().set('page', page.toString()).set('size', size.toString());
-    return this.http.get<ArticleResponse[]>(`${this.api}/s?content=${content}`, { params })
+    return this.http.get<Page>(`${this.api}/s?content=${content}`, { params })
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);
@@ -98,9 +89,9 @@ export class ArticleService {
         );
   }
 
-  public filterByTag(page: number, size: number, tag: string): Observable<ArticleResponse[]> {
+  public filterByTag(page: number, size: number, tag: string): Observable<Page> {
     const params: HttpParams = new HttpParams().set('page', page.toString()).set('size', size.toString());
-    return this.http.get<ArticleResponse[]>(`${this.api}/filter?tag=${tag}`, { params })
+    return this.http.get<Page>(`${this.api}/filter?tag=${tag}`, { params })
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);
@@ -109,9 +100,9 @@ export class ArticleService {
         );
   }
 
-  public getByAuthor(page: number, size: number, author: string): Observable<ArticleResponse[]> {
+  public getByAuthor(page: number, size: number, author: string): Observable<Page> {
     const params: HttpParams = new HttpParams().set('page', page.toString()).set('size', size.toString());
-    return this.http.get<ArticleResponse[]>(`${this.api}/g?author=${author}`, { params })
+    return this.http.get<Page>(`${this.api}/g?author=${author}`, { params })
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);
