@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import {CommentState} from "../../state/comment.state";
+import { CommentState } from "../../state/comment.state";
 
 export const selectCommentState = createFeatureSelector<CommentState>('comments');
 

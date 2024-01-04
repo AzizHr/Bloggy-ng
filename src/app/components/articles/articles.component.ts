@@ -21,7 +21,7 @@ export class ArticlesComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    this.store.dispatch(ArticleActions.loadArticles());
+    this.store.dispatch(ArticleActions.loadArticles({ page: 0, size: 9 }));
     this.articles$.subscribe(articles => {
       this.articles = articles.content;
       console.log(this.articles);

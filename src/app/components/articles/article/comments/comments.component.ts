@@ -16,16 +16,18 @@ export class CommentsComponent {
 
   comments$: Observable<CommentResponse[]>;
   comments: CommentResponse[] = [];
+
   @Input() articleId!: string;
   constructor(private store: Store<AppStore>) {
     this.comments$ = this.store.pipe(select(selectComments))
   }
 
   ngOnInit(): void {
-
+    console.log(this.articleId);
     this.store.dispatch(CommentActions.loadArticleComments({ articleId: this.articleId }));
-    this.comments$.subscribe(articles => {
-      this.comments = articles;
+    this.comments$.subscribe(comments => {
+      this.comments = comments;
+      console.log(`comments for article => ${this.articleId}`);
       console.log(this.comments);
     })
   }
