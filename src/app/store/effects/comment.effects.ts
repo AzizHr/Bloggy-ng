@@ -6,18 +6,14 @@ import {CommentService} from "../../services/comment/comment.service";
 
 @Injectable()
 export class CommentEffects {
-  loadArticleComments$ = createEffect(() => this.actions$.pipe(
-    ofType(CommentActions.loadArticleComments),
-    exhaustMap((action) => this.commentService.findByArticle(action.articleId).pipe(
-      map(comments => CommentActions.loadArticleCommentsSuccess({ comments })),
-      catchError(async () => CommentActions.loadArticleCommentsFailure())
-    ))
-  ));
 
   addComment$ = createEffect(() => this.actions$.pipe(
     ofType(CommentActions.addComment),
     mergeMap(action => this.commentService.create(action.comment).pipe(
-      map(comment => CommentActions.addCommentSuccess({ comment })),
+      map(comment => {
+        console.log(comment)
+        return CommentActions.addCommentSuccess({ comment })
+      }),
       catchError(async () => CommentActions.addCommentFailure())
     ))
   ));

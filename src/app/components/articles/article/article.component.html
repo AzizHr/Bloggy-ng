@@ -5,9 +5,9 @@
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">{{ article.title }}</div>
     <p class="text-gray-700 text-base">
-      {{ article.content}}
+      {{ article.content }}
     </p>
   </div>
   <app-tags [tags]="article.tags"></app-tags>
-  <app-comments [articleId]="article.id"></app-comments>
+  <app-comments [comments]="article.comments"></app-comments>
 </div>

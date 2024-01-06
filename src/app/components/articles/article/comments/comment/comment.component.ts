@@ -8,6 +8,6 @@ import {CommentResponse} from "../../../../../models/comment/comment-response.mo
 })
 export class CommentComponent {
 
-  @Input() comment!: CommentResponse;
+  @Input() comment: CommentResponse;
 
 }

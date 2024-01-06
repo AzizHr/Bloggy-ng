@@ -2,10 +2,6 @@ import { createAction, props } from '@ngrx/store';
 import { CommentResponse } from "../../models/comment/comment-response.model";
 import { Comment } from "../../models/comment/comment.model";
 
-export const loadArticleComments = createAction('[Comment] Load Article Comments', props<{ articleId: string }>());
-export const loadArticleCommentsSuccess = createAction('[Comment] Load Article Comments Success', props<{ comments: CommentResponse[] }>());
-export const loadArticleCommentsFailure = createAction('[Comment] Load Article Comments Failure');
-
 export const addComment = createAction('[Comment] Add Comment', props<{ comment: Comment }>());
 export const addCommentSuccess = createAction('[Comment] Add Comment Success', props<{ comment: CommentResponse }>());
 export const addCommentFailure = createAction('[Comment] Add Comment Failure');
