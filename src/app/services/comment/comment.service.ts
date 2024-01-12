@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {catchError, Observable} from "rxjs";
 import {ArticleResponse} from "../../models/article/article-response.model";
 import {HttpClient } from "@angular/common/http";
-import { Comment } from "../../models/comment/comment.model";
+import { Comment } from "../../models/comment.model";
 import {CommentResponse} from "../../models/comment/comment-response.model";
 
 @Injectable({

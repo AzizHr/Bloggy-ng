@@ -1,13 +1,14 @@
 import {Component, Input} from '@angular/core';
-import {ArticleResponse} from "../../../models/article/article-response.model";
-import {CommentResponse} from "../../../models/comment/comment-response.model";
+import {Article} from "../../../models/article.model";
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css']
 })
+
 export class ArticleComponent {
- @Input() article: ArticleResponse;
+
+ @Input() article: Article;
 
 }

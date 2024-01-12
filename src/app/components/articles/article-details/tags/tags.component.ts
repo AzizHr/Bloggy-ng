@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-tags',
@@ -6,7 +6,5 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent {
-
-  @Input() tags: string[];
 
 }

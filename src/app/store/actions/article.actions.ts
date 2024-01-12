@@ -1,19 +1,25 @@
 import { createAction, props } from '@ngrx/store';
-import {ArticleResponse} from "../../models/article/article-response.model";
-import { Article } from "../../models/article/article.model";
+import { Article } from "../../models/article.model";
+import {ArticleActionTypes} from "../../enums/article-action-types";
 
-export const loadArticles = createAction('[Article] Load Articles', props<{ page: number, size: number }>());
-export const loadBArticlesSuccess = createAction('[Article] Load Articles Success', props<{ articles: ArticleResponse[] }>());
-export const loadArticlesFailure = createAction('[Article] Load Articles Failure');
+export const loadArticles = createAction(ArticleActionTypes.LOAD_ARTICLES, props<{ page: number, size: number }>());
+export const loadArticlesSuccess = createAction(ArticleActionTypes.LOAD_ARTICLES_SUCCESS, props<{ articles: Article[] }>());
 
-export const addArticle = createAction('[Article] Add Article', props<{ article: Article }>());
-export const addArticleSuccess = createAction('[Article] Add Article Success', props<{ article: ArticleResponse }>());
-export const addArticleFailure = createAction('[Article] Add Article Failure');
+export const loadArticlesFailure = createAction(ArticleActionTypes.LOAD_ARTICLES_FAILURE, props<{ error: string }>());
 
-export const updateArticle = createAction('[Article] Update Article', props<{ article: Article }>());
-export const updateArticleSuccess = createAction('[Article] Update Article Success', props<{ article: ArticleResponse }>());
-export const updateArticleFailure = createAction('[Article] Update Article Failure');
+export const addArticle = createAction(ArticleActionTypes.ADD_ARTICLE, props<{ article: Article }>());
+export const addArticleSuccess = createAction(ArticleActionTypes.ADD_ARTICLE_SUCCESS, props<{ article: Article }>());
+export const addArticleFailure = createAction(ArticleActionTypes.ADD_ARTICLE_FAILURE, props<{ error: string }>());
 
-export const deleteArticle = createAction('[Article] Delete Article', props<{ id: string }>());
-export const deleteArticleSuccess = createAction('[Article] Delete Article Success', props<{ id: string }>());
-export const deleteArticleFailure = createAction('[Article] Delete Article Failure');
+export const updateArticle = createAction(ArticleActionTypes.UPDATE_ARTICLE, props<{ article: Article }>());
+export const updateArticleSuccess = createAction(ArticleActionTypes.UPDATE_ARTICLE_SUCCESS, props<{ article: Article }>());
+export const updateArticleFailure = createAction(ArticleActionTypes.UPDATE_ARTICLE_FAILURE, props<{ error: string }>());
+
+export const deleteArticle = createAction(ArticleActionTypes.DELETE_ARTICLE, props<{ id: string }>());
+export const deleteArticleSuccess = createAction(ArticleActionTypes.DELETE_ARTICLE_SUCCESS, props<{ message: string }>());
+export const deleteArticleFailure = createAction(ArticleActionTypes.DELETE_ARTICLE_FAILURE, props<{ error: string }>());
+
+export const loadArticle = createAction(ArticleActionTypes.LOAD_ARTICLE, props<{ id: string }>());
+export const loadArticleSuccess = createAction(ArticleActionTypes.LOAD_ARTICLE_SUCCESS, props<{ article: Article }>());
+export const loadArticleFailure = createAction(ArticleActionTypes.LOAD_ARTICLE_FAILURE, props<{ error: string }>());
+

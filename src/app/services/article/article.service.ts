@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
-import { Article } from "../../models/article/article.model";
-import { ArticleResponse } from "../../models/article/article-response.model";
+import { Article } from "../../models/article.model";
 import {Page} from "../../models/pageable/page.model";
 
 @Injectable({
@@ -15,8 +14,8 @@ export class ArticleService {
 
   api: string = "http://localhost:8080/api/articles";
 
-  public create(article: Article): Observable<ArticleResponse> {
-    return this.http.post<ArticleResponse>(this.api, article)
+  public create(article: Article): Observable<Article> {
+    return this.http.post<Article>(this.api, article)
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);
@@ -25,8 +24,8 @@ export class ArticleService {
         );
   }
 
-  public update(article: Article): Observable<ArticleResponse> {
-    return this.http.post<ArticleResponse>(this.api, article)
+  public update(article: Article): Observable<Article> {
+    return this.http.post<Article>(this.api, article)
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);
@@ -45,8 +44,8 @@ export class ArticleService {
         );
   }
 
-  public getOne(id: string): Observable<ArticleResponse> {
-    return this.http.get<ArticleResponse>(`${this.api}/${id}`)
+  public getOne(id: string): Observable<Article> {
+    return this.http.get<Article>(`${this.api}/${id}`)
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);

@@ -1,10 +1,10 @@
-import {ArticleResponse} from "../article/article-response.model";
 import {Pageable} from "./pageable.model";
 import {Sort} from "./sort.model";
+import {Article} from "../article.model";
 
 export interface Page {
 
-  content: ArticleResponse[],
+  content: Article[],
   pageable: Pageable;
   last: boolean;
   totalElements: number;

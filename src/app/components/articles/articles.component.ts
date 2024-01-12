@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ArticleResponse} from "../../models/article/article-response.model";
 import {select, Store} from "@ngrx/store";
 import {selectArticles} from "../../store/selectors/article.selectors";
-import {AppStore} from "../../store/reducers";
 import {Observable} from "rxjs";
 import * as ArticleActions from '../../store/actions/article.actions';
+import {Article} from "../../models/article.model";
 
 @Component({
   selector: 'app-articles',
@@ -14,9 +13,9 @@ import * as ArticleActions from '../../store/actions/article.actions';
 export class ArticlesComponent implements OnInit {
 
   articles$: Observable<any>;
-  articles: ArticleResponse[] = [];
+  articles: Article[] = [];
 
-  constructor(private store: Store<AppStore>) {
+  constructor(private store: Store) {
     this.articles$ = this.store.pipe(select(selectArticles))
   }
   ngOnInit(): void {

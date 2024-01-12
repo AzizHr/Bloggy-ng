@@ -1,5 +1,6 @@
 <div class="rounded overflow-hidden shadow-lg">
   <img class="w-full"
+       [routerLink]="['/articles', article.id]"
        src="https://www.wbcsd.org/var/site/storage/images/media/page-assets/imperative/nature-action/nature-action-intro/243120-2-eng-GB/Nature-action-intro_i1140.jpg"
        alt="Sunset in the mountains">
   <div class="px-6 py-4">
@@ -8,6 +9,8 @@
       {{ article.content }}
     </p>
   </div>
-  <app-tags [tags]="article.tags"></app-tags>
-  <app-comments [comments]="article.comments"></app-comments>
+  <div class="flex gap-4">
+    <span>{{ article.comments.length }}</span>
+    <span>{{ article.tags.length }}</span>
+  </div>
 </div>

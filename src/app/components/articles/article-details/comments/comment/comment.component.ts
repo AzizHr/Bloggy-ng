@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {CommentResponse} from "../../../../../models/comment/comment-response.model";
+import {Comment} from "../../../../../models/comment.model";
 
 @Component({
   selector: 'app-comment',
@@ -8,6 +8,6 @@ import {CommentResponse} from "../../../../../models/comment/comment-response.mo
 })
 export class CommentComponent {
 
-  @Input() comment: CommentResponse;
+  @Input() comment: Comment;
 
 }

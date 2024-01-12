@@ -1,9 +1,11 @@
-import {ArticleResponse} from "../models/article/article-response.model";
+import {Article} from "../models/article.model";
 
 export interface ArticleState {
-  articles: ArticleResponse[];
+  articles: Article[];
+  error: string;
 }
 
 export const initialState: ArticleState = {
-  articles: []
-}
+  articles: [],
+  error: null
+};
