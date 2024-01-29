@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {catchError, Observable} from "rxjs";
-import {ArticleResponse} from "../../models/article/article-response.model";
 import {HttpClient } from "@angular/common/http";
 import { Comment } from "../../models/comment.model";
-import {CommentResponse} from "../../models/comment/comment-response.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +13,8 @@ export class CommentService {
 
   constructor(private http: HttpClient) { }
 
-  public create(comment: Comment): Observable<CommentResponse> {
-    return this.http.post<CommentResponse>(this.api, comment)
+  public create(comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(this.api, comment)
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);
@@ -25,8 +23,8 @@ export class CommentService {
         );
   }
 
-  public update(comment: Comment): Observable<CommentResponse> {
-    return this.http.post<CommentResponse>(this.api, comment)
+  public update(comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(this.api, comment)
         .pipe(
             catchError((error: any) => {
               console.log(error.error.message);
@@ -43,36 +41,6 @@ export class CommentService {
               throw error;
             })
         );
-  }
-
-  public findById(id: string): Observable<CommentResponse> {
-    return this.http.get<CommentResponse>(`${this.api}/${id}`)
-        .pipe(
-            catchError((error: any) => {
-              console.log(error.error.message);
-              throw error;
-            })
-        );
-  }
-
-  public findAll(): Observable<CommentResponse[]> {
-    return this.http.get<CommentResponse[]>(this.api)
-        .pipe(
-            catchError((error: any) => {
-              console.log(error.error.message);
-              throw error;
-            })
-        );
-  }
-
-  public findByArticle(article: string): Observable<CommentResponse[]> {
-    return this.http.get<CommentResponse[]>(`${this.api}/f?article=${article}`)
-      .pipe(
-        catchError((error: any) => {
-          console.log(error.error.message);
-          throw error;
-        })
-      );
   }
 
 }

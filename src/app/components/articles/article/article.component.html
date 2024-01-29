@@ -1,16 +1,15 @@
 <div class="rounded overflow-hidden shadow-lg">
   <img class="w-full"
        [routerLink]="['/articles', article.id]"
-       src="https://www.wbcsd.org/var/site/storage/images/media/page-assets/imperative/nature-action/nature-action-intro/243120-2-eng-GB/Nature-action-intro_i1140.jpg"
+       [src]="article.medias[0].url"
        alt="Sunset in the mountains">
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">{{ article.title }}</div>
-    <p class="text-gray-700 text-base">
-      {{ article.content }}
-    </p>
-  </div>
-  <div class="flex gap-4">
-    <span>{{ article.comments.length }}</span>
-    <span>{{ article.tags.length }}</span>
+    <div class="flex gap-5">
+      <p class="text-gray-700 text-base">
+        By <span class="font-bold">{{ article.author.firstname }} {{ article.author.lastname }}</span>, Published in {{ getFormattedDate(article.createdAt) }}
+      </p>
+      <a *ngIf="isArticleAuthor(article.author.id)" [routerLink]="['/articles/update', article.id]"><i class="fa-solid fa-pen-to-square"></i></a>
+    </div>
   </div>
 </div>

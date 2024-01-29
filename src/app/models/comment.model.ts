@@ -4,7 +4,7 @@ export interface Comment {
 
     id?: string;
     content: string;
-    article: string;
+    articleId: string;
     authorId?: string;
     author?: Author;
     createdAt?: Date;

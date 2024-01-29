@@ -10,4 +10,8 @@ export class CommentComponent {
 
   @Input() comment: Comment;
 
+  hasAuthor(comment: any) {
+    return comment.author ? comment.author.firstname + ' ' + comment.author.lastname : 'Anonymous user';
+  }
+
 }

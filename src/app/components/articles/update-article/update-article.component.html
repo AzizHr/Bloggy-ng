@@ -1,0 +1,70 @@
+<!-- component -->
+<div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
+  <div class="container max-w-screen-lg mx-auto">
+    <div>
+
+      <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+          <div class="text-gray-600">
+            <p class="font-medium text-lg">Article Details</p>
+            <p>Please fill out all the fields.</p>
+          </div>
+
+          <form [formGroup]="articleForm" (ngSubmit)="update()" class="lg:col-span-2">
+            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+              <div class="md:col-span-5">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" formControlName="title" />
+              </div>
+              <span class="text-s text-red-500"
+                    *ngIf="isFieldValid('title')"
+              >This field is required</span>
+
+              <div class="md:col-span-5">
+                <label for="content">Content</label>
+                <textarea id="content" class="border mt-1 rounded px-4 w-full bg-gray-50" formControlName="content">{{ articleForm.value.content }}</textarea>
+              </div>
+              <span class="text-s text-red-500"
+                    *ngIf="isFieldValid('content')"
+              >This field is required</span>
+
+
+              <div class="md:col-span-5">
+                <label for="file-input">Medias</label>
+                <input type="file" name="file-input" formControlName="medias" id="file-input" class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
+    file:bg-gray-50 file:border-0
+    file:bg-gray-100 file:me-4
+    file:py-3 file:px-4">
+              </div>
+              <span class="text-s text-red-500"
+                    *ngIf="isFieldValid('medias')"
+              >This field is required</span>
+
+              <div class="md:col-span-5">
+                <label for="tags" class="block mb-2 text-sm text-gray-600">Tags</label>
+                <input
+                  type="text"
+                  class="w-full px-4 py-6 text-sm border border-gray-300 rounded outline-none"
+                  name="tags"
+                  id="tags"
+                  formControlName="tags"
+                />
+              </div>
+              <span class="text-s text-red-500"
+                    *ngIf="isFieldValid('tags')"
+              >This field is required</span>
+
+              <div class="md:col-span-5 text-right">
+                <div class="inline-flex items-end">
+                  <button [disabled]="articleForm.invalid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

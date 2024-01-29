@@ -1,1 +1,4 @@
-<p>tags works!</p>
+<span class="font-bold">Tags</span>
+<div class="flex gap-3 mt-4">
+  <app-tag *ngFor="let tag of tags" [tag]="tag"></app-tag>
+</div>

@@ -1,4 +1,11 @@
-<div class="flex flex-col gap-3 p-2">
-  <span>{{ comment.author.firstname }} {{ comment.author.lastname }}</span>
-  <span>{{ comment.content }}</span>
+<div class="flex">
+  <div class="flex-shrink-0 mr-3">
+    <img class="mt-2 rounded-full w-8 h-8 sm:w-10 sm:h-10" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
+  </div>
+  <div class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+    <strong>{{ hasAuthor(comment) }}</strong> <span class="text-xs text-gray-400 ml-2">3:34 PM</span>
+    <p class="text-sm">
+      {{ comment.content }}
+    </p>
+  </div>
 </div>

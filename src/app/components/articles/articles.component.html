@@ -1,3 +1,38 @@
+<h1 class="font-bold text-3xl mx-4 sm:mx-6 md:mx-10 text-gray-600 mt-10">Popular Articles</h1>
+<hr class="mx-4 sm:mx-6 md:mx-10 my-4">
 <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 mx-4 sm:mx-6 md:mx-10">
   <app-article *ngFor="let article of articles" [article]="article"></app-article>
+</div>
+
+<div class="mt-5 mx-auto w-fit">
+  <div class="flex items-center">
+    <!-- Previous Page Button -->
+    <button
+      class="bg-gray-500 text-white px-4 py-2 rounded-l"
+      [disabled]="isFirstPage()"
+      (click)="onPageChange({ page: currentPage - 1, rows: limit })"
+    >
+      Previous
+    </button>
+
+    <!-- Page Numbers -->
+    <div class="flex">
+      <button
+        *ngFor="let page of pages"
+        class="bg-gray-500 text-white px-4 py-2"
+        (click)="onPageChange({ page: page, rows: limit })"
+      >
+        {{ page + 1 }}
+      </button>
+    </div>
+
+    <!-- Next Page Button -->
+    <button
+      [disabled]="isLastPage()"
+      class="bg-gray-500 text-white px-4 py-2 rounded-r"
+      (click)="onPageChange({ page: currentPage + 1, rows: limit })"
+    >
+      Next
+    </button>
+  </div>
 </div>
